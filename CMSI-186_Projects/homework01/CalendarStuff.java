@@ -97,9 +97,5 @@ public class DateDistance {
         }
 
 
-
-        return -1; // TODO: Finish this method!
-
-
     }
 }

@@ -1,4 +1,4 @@
-public class CalendarStuff {
+public class DateDistance {
 
     /**
      * Returns whether the given year is a leap year.
@@ -53,22 +53,21 @@ public class CalendarStuff {
      * Returns the number of days between the two provided dates, regardless of
      * the order they were provided.
      */
-    public static long daysBetween ( long month0, long day0, long year0,
-            long month1, long day1, long year1 ) {
+    public static long daysBetween ( long month0, long day0, long year0, long month1, long day1, long year1 ) {
         int daysCompleted0 = 0;
         int daysCompleted1 = 0;
         for (int i = 1; i < month0; i++){
             daysCompleted0 += daysInMonth(year0, i);
         }
         daysCompleted0 += day0;
-        for (int i = 1; i < month01; i++){
+        for (int i = 1; i < month1; i++){
             daysCompleted1 += daysInMonth(year1, i);
         }
         daysCompleted1 += day1;
         int daysFromYears = 0;
         if (year0 < year1){
-            for (int i = year0; i < year1; i++){
-                if (isLeapYear(i) = true){
+            for (long i = year0; i < year1; i++){
+                if (isLeapYear(i) == true){
                     daysFromYears += 366;
                 } else {
                     daysFromYears += 365;
@@ -82,39 +81,25 @@ public class CalendarStuff {
 
         }
         if (year1 < year0){
-            for (int i = year1; i < year0; i++){
-                if (isLeapYear(i) = true){
+            for (long i = year1; i < year0; i++){
+                if (isLeapYear(i) == true){
                     daysFromYears += 366;
                 } else {
                     daysFromYears += 365;
                 }
             }
+            if (isLeapYear(year1) == true){
+                return daysFromYears + (366-daysCompleted0) + daysCompleted1;
+            } else {
+                return daysFromYears + (365-daysCompleted0) + daysCompleted1;
+            }
 
-            
         }
 
 
 
         return -1; // TODO: Finish this method!
 
-        //calculate number of days that have passed
-        //calculate difference in years
 
-    /**
-     * Returns the day of the week the given date occured on as a String.
-     */
-    public static String dayOfTheWeek ( long month, long day, long year ) {
-        return ""; // TODO: Finish this method!
-    }
-
-    /**
-     * Returns the long form of the given date as a String.
-     */
-    public static String longformDate ( long month, long day, long year ) {
-        return ""; // TODO: Finish this method!
-    }
-
-    public static void main ( String[] args ) {
-        // TODO: Finish this method!
     }
 }

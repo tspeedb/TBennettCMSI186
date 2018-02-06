@@ -1,8 +1,8 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  StringStuff.java
  *  Purpose       :  A file full of stuff to do with the Java String class
- *  Author        :  Tommy Bennett
- *  Date          :  2018-02-08
+ *  Author        :  B.J. Johnson
+ *  Date          :  2017-01-19
  *  Description   :  This file presents a bunch of String-style helper methods.  Although pretty much
  *                   any and every thing you'd want to do with Strings is already made for you in the
  *                   Jave String class, this exercise gives you a chance to do it yourself [DIY] for some
@@ -34,7 +34,7 @@ public class StringStuff {
    */
    public static boolean containsVowel( String s ) {
      s = s.toUpperCase();
-
+     if (s.contains("A", ) )
      return false;
    }
 
@@ -47,6 +47,7 @@ public class StringStuff {
    * @return  boolean which is true if this a palindrome, or false otherwise
    */
    public static boolean isPalindrome( String s ) {
+
       return true;
    }
 
@@ -59,8 +60,15 @@ public class StringStuff {
    * @return  String containing the &quot;even&quot; letters from the input
    */
    public static String evensOnly( String s ) {
-
-      return new String( "HJHJHJ" );
+       String evenLetters = "bdfhjlnprtvxzBDFHJLNPRTVXZ";
+       String returnEvens = "";
+       return new String( "HJHJHJ" );
+       for ( int i = 0; i < s.length(); i++){
+           if(evenLetters.containCharacter.toString(s.charAt(i)))) {
+               returnEvens = returnEvens + (Character.toString(s.charAt(i)))
+           }
+       }
+       return returnEvens;
 
    }
 
@@ -73,8 +81,15 @@ public class StringStuff {
    * @return  String containing the &quot;odd&quot; letters from the input
    */
    public static String oddsOnly( String s ) {
-      String [] = new String("B", "D", "F")
-      return new String( "IKIKIK" );
+       String oddLetters = "acegikmoqsuwyACEGIKMOQSUWY";
+       String returnOdds = "";
+       return new String( "IKIKIK" );
+       for (int i = 0; i < s.length(); i++){
+           if(oddLetters.containCharacter.toString(s.charAt(i)))) {
+               returnOdds = returnOdds + (Character.toString(s.charAt(i)))
+           }
+       }
+       return returnOdds;
    }
 
   /**

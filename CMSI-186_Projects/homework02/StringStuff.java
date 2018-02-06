@@ -1,8 +1,8 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  StringStuff.java
  *  Purpose       :  A file full of stuff to do with the Java String class
- *  Author        :  B.J. Johnson
- *  Date          :  2017-01-19
+ *  Author        :  Tommy Bennett
+ *  Date          :  2018-02-08
  *  Description   :  This file presents a bunch of String-style helper methods.  Although pretty much
  *                   any and every thing you'd want to do with Strings is already made for you in the
  *                   Jave String class, this exercise gives you a chance to do it yourself [DIY] for some
@@ -33,7 +33,9 @@ public class StringStuff {
    * @return  boolean which is true if there is a vowel, or false otherwise
    */
    public static boolean containsVowel( String s ) {
-      return false;
+     s = s.toUpperCase();
+
+     return false;
    }
 
   /**
@@ -57,7 +59,9 @@ public class StringStuff {
    * @return  String containing the &quot;even&quot; letters from the input
    */
    public static String evensOnly( String s ) {
+
       return new String( "HJHJHJ" );
+
    }
 
   /**
@@ -69,6 +73,7 @@ public class StringStuff {
    * @return  String containing the &quot;odd&quot; letters from the input
    */
    public static String oddsOnly( String s ) {
+      String [] = new String("B", "D", "F")
       return new String( "IKIKIK" );
    }
 
@@ -101,7 +106,12 @@ public class StringStuff {
    * @return  String containing the reverse of the input string
    */
    public static String reverse( String s ) {
-      return new String( "kculc eht tahw" );
+      String reverse = "";
+      for(int i = (s.length()-1); i>=0; i--) {
+          reverse = reverse + s.charAt(i);
+      }
+      return reverse;
+      //return new String( "kculc eht tahw" );
    }
 
   /**

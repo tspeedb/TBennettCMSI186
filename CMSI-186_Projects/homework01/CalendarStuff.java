@@ -1,10 +1,8 @@
 /**
  *  File name     :  CalendarStuff.java
  *  Purpose       :  Provides a class with supporting methods for CountTheDays.java program
- *  Author        :  B.J. Johnson (prototype)
- *  Date          :  2017-01-02 (prototype)
- *  Author        :  <your name here>
- *  Date          :  <date of writing here>
+ *  Author        :  Tommy Bennett
+ *  Date          :  2018-02-06
  *  Description   :  This file provides the supporting methods for the CountTheDays program which will
  *                   calculate the number of days between two dates.  It shows the use of modularization
  *                   when writing Java code, and how the Java compiler can "figure things out" on its

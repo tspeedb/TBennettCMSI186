@@ -34,9 +34,29 @@ public class StringStuff {
    */
    public static boolean containsVowel( String s ) {
      s = s.toUpperCase();
-     if (s.contains("A", ) )
-     return false;
+     if (s.contains("A", "E", "I", "O", "U")){
+         return true;
+     } else if (!s.contains("A", "E", "I", "O", "U") && s.contains("Y")) {
+         return true;
+     } else {
+         return false;
+     }
    }
+
+   /**
+    * Method to return the reverse of a string passed as an argument
+    *
+    * @param s String containing the data to be reversed
+    * @return  String containing the reverse of the input string
+    */
+    public static String reverse( String s ) {
+       String reverse = "";
+       for(int i = (s.length()-1); i>=0; i--) {
+           reverse = reverse + s.charAt(i);
+       }
+       return reverse;
+       //return new String( "kculc eht tahw" );
+    }
 
   /**
    * Method to determine if a string is a palindrome.  Does it the brute-force way, checking
@@ -47,8 +67,11 @@ public class StringStuff {
    * @return  boolean which is true if this a palindrome, or false otherwise
    */
    public static boolean isPalindrome( String s ) {
-
-      return true;
+       if (s == reverse(s)){
+           return true;
+       } else {
+           return false;
+       }
    }
 
   /**
@@ -120,7 +143,7 @@ public class StringStuff {
    * @param s String containing the data to be reversed
    * @return  String containing the reverse of the input string
    */
-   public static String reverse( String s ) {
+/*   public static String reverse( String s ) {
       String reverse = "";
       for(int i = (s.length()-1); i>=0; i--) {
           reverse = reverse + s.charAt(i);
@@ -128,7 +151,7 @@ public class StringStuff {
       return reverse;
       //return new String( "kculc eht tahw" );
    }
-
+*/
   /**
    * Main method to test the methods in this class
    *

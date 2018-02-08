@@ -1,8 +1,8 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  StringStuff.java
  *  Purpose       :  A file full of stuff to do with the Java String class
- *  Author        :  B.J. Johnson
- *  Date          :  2017-01-19
+ *  Author        :  Tommy Bennett
+ *  Date          :  2018-02-08
  *  Description   :  This file presents a bunch of String-style helper methods.  Although pretty much
  *                   any and every thing you'd want to do with Strings is already made for you in the
  *                   Jave String class, this exercise gives you a chance to do it yourself [DIY] for some
@@ -91,7 +91,7 @@ public class StringStuff {
        String evenLetters = "bdfhjlnprtvxzBDFHJLNPRTVXZ";
        String returnEvens = "";
        //return new String( "HJHJHJ" );
-       for ( int i = 0; i <= s.length(); i++){
+       for ( int i = 0; i < s.length(); i++){
            if(evenLetters.contains(Character.toString(s.charAt(i)))) {
                returnEvens = returnEvens + (Character.toString(s.charAt(i)));
            }
@@ -112,7 +112,7 @@ public class StringStuff {
        String oddLetters = "acegikmoqsuwyACEGIKMOQSUWY";
        String returnOdds = "";
        //return new String( "IKIKIK" );
-       for (int i = 0; i <= s.length(); i++){
+       for (int i = 0; i < s.length(); i++){
            if(oddLetters.contains(Character.toString(s.charAt(i)))) {
                returnOdds = returnOdds + (Character.toString(s.charAt(i)));
            }
@@ -128,7 +128,15 @@ public class StringStuff {
    * @return  String containing the &quot;even&quot; letters from the input without duplicates
    */
    public static String evensOnlyNoDupes( String s ) {
-      return new String( "HJ" );
+      s = evensOnly(s);
+      String NoDupes = "";
+      for (int i = 0; i < s.length(); i++) {
+          if (!NoDupes.contains(Character.toString(s.charAt(i)))) {
+              NoDupes = NoDupes + (Character.toString(s.charAt(i)));
+          }
+      }
+      System.out.println("Evens only, no duplicates string: " + NoDupes);
+      return new String(NoDupes);
    }
 
   /**
@@ -139,7 +147,15 @@ public class StringStuff {
    * @return  String containing the &quot;odd&quot; letters from the input without duplicates
    */
    public static String oddsOnlyNoDupes( String s ) {
-      return new String( "IK" );
+       s = oddsOnly(s);
+       String NoDupes = "";
+       for (int i = 0; i < s.length(); i++) {
+           if (!NoDupes.contains(Character.toString(s.charAt(i)))) {
+               NoDupes = NoDupes + (Character.toString(s.charAt(i)));
+           }
+       }
+       System.out.println("Odds only, no duplicates string: " + NoDupes);
+       return new String(NoDupes);
    }
 
   /**

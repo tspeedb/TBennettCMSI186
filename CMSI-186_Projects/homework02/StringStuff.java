@@ -34,9 +34,13 @@ public class StringStuff {
    */
    public static boolean containsVowel( String s ) {
      s = s.toUpperCase();
-     if (s.contains("A", "E", "I", "O", "U")){
-         return true;
-     } else if (!s.contains("A", "E", "I", "O", "U") && s.contains("Y")) {
+     String EvenLetters = "A" + "E" + "I" + "O" + "U";
+     for (int i = 0; i < s.length(); i++){
+         if (s.charAt(i) == 'A' || s.charAt(i) == 'E' || s.charAt(i) == 'I' || s.charAt(i) == 'O' || s.charAt(i) == 'U'){
+             return true;
+         }
+     }
+     if (!s.contains(EvenLetters) && s.contains("Y")) {
          return true;
      } else {
          return false;
@@ -67,11 +71,12 @@ public class StringStuff {
    * @return  boolean which is true if this a palindrome, or false otherwise
    */
    public static boolean isPalindrome( String s ) {
-       if (s == reverse(s)){
-           return true;
-       } else {
-           return false;
+       for (int i = 0; i < (s.length()/2); i++){
+           if (s.charAt(i) != s.charAt(s.length() - i - 1)){
+               return false;
+           }
        }
+       return true;
    }
 
   /**
@@ -85,10 +90,10 @@ public class StringStuff {
    public static String evensOnly( String s ) {
        String evenLetters = "bdfhjlnprtvxzBDFHJLNPRTVXZ";
        String returnEvens = "";
-       return new String( "HJHJHJ" );
-       for ( int i = 0; i < s.length(); i++){
-           if(evenLetters.containCharacter.toString(s.charAt(i)))) {
-               returnEvens = returnEvens + (Character.toString(s.charAt(i)))
+       //return new String( "HJHJHJ" );
+       for ( int i = 0; i <= s.length(); i++){
+           if(evenLetters.contains(Character.toString(s.charAt(i)))) {
+               returnEvens = returnEvens + (Character.toString(s.charAt(i)));
            }
        }
        return returnEvens;
@@ -106,10 +111,10 @@ public class StringStuff {
    public static String oddsOnly( String s ) {
        String oddLetters = "acegikmoqsuwyACEGIKMOQSUWY";
        String returnOdds = "";
-       return new String( "IKIKIK" );
-       for (int i = 0; i < s.length(); i++){
-           if(oddLetters.containCharacter.toString(s.charAt(i)))) {
-               returnOdds = returnOdds + (Character.toString(s.charAt(i)))
+       //return new String( "IKIKIK" );
+       for (int i = 0; i <= s.length(); i++){
+           if(oddLetters.contains(Character.toString(s.charAt(i)))) {
+               returnOdds = returnOdds + (Character.toString(s.charAt(i)));
            }
        }
        return returnOdds;

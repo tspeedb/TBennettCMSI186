@@ -33,6 +33,12 @@
  *  @version 1.0.0  2017-02-06  B.J. Johnson  Initial writing and release
  *  @version 1.1.0  2017-02-17  B.J. Johnson  Filled in method code
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+import java.util.Random;
+import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.BufferedReader;
+
 public class Die {
 
   /**
@@ -50,6 +56,10 @@ public class Die {
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
    public DieEmpty( int nSides ) {
+      if ( nSides < MINIMUM_SIDES ){
+           IllegalArgumentException("Invalid number of sides!")
+       }
+       sides = nSides;
    }
 
   /**
@@ -57,7 +67,8 @@ public class Die {
    * @return  integer value of the result of the roll, randomly selected
    */
    public int roll() {
-      return 0;
+      Random random = new Random();
+      return random.nextInt(sides);
    }
 
   /**

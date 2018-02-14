@@ -55,9 +55,9 @@ public class Die {
    * @throws       IllegalArgumentException
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
-   public DieEmpty( int nSides ) {
-      if ( nSides < MINIMUM_SIDES ){
-           IllegalArgumentException("Invalid number of sides!")
+   public void DieEmpty( int nSides ) {
+       if ( nSides < MINIMUM_SIDES ){
+           throw IllegalArgumentException("Invalid number of sides!");
        }
        sides = nSides;
    }
@@ -67,8 +67,8 @@ public class Die {
    * @return  integer value of the result of the roll, randomly selected
    */
    public int roll() {
-      Random random = new Random();
-      return random.nextInt(sides);
+      pips = (int)((Math.random() * sides) + 1);
+      return pips;
    }
 
   /**
@@ -79,7 +79,7 @@ public class Die {
    * @return the pip count of THIS die instance
    */
    public int getValue() {
-      return 0;
+      return this.pips;
    }
 
   /**
@@ -88,6 +88,7 @@ public class Die {
    * @throws      IllegalArgumentException
    */
    public void setSides( int sides ) {
+       this.sides = sides;
    }
 
   /**
@@ -95,7 +96,7 @@ public class Die {
    * @return String representation of this Die
    */
    public String toString() {
-      return "";
+      return Integer.toString(this.pips);
    }
 
   /**
@@ -103,7 +104,7 @@ public class Die {
    * @return String representation of this Die
    */
    public static String toString( Die d ) {
-      return "";
+      return Integer.toString(d.pips);
    }
 
   /**

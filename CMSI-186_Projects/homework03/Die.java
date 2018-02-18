@@ -33,6 +33,12 @@
  *  @version 1.0.0  2017-02-06  B.J. Johnson  Initial writing and release
  *  @version 1.1.0  2017-02-17  B.J. Johnson  Filled in method code
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+import java.util.Random;
+import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.BufferedReader;
+
 public class Die {
 
   /**
@@ -49,7 +55,11 @@ public class Die {
    * @throws       IllegalArgumentException
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
-   public DieEmpty( int nSides ) {
+   public void DieEmpty( int nSides ) {
+       if ( nSides < MINIMUM_SIDES ){
+           throw IllegalArgumentException("Invalid number of sides!");
+       }
+       sides = nSides;
    }
 
   /**
@@ -57,7 +67,8 @@ public class Die {
    * @return  integer value of the result of the roll, randomly selected
    */
    public int roll() {
-      return 0;
+      pips = (int)((Math.random() * sides) + 1);
+      return pips;
    }
 
   /**
@@ -68,7 +79,7 @@ public class Die {
    * @return the pip count of THIS die instance
    */
    public int getValue() {
-      return 0;
+      return this.pips;
    }
 
   /**
@@ -77,6 +88,7 @@ public class Die {
    * @throws      IllegalArgumentException
    */
    public void setSides( int sides ) {
+       this.sides = sides;
    }
 
   /**
@@ -84,7 +96,7 @@ public class Die {
    * @return String representation of this Die
    */
    public String toString() {
-      return "";
+      return Integer.toString(this.pips);
    }
 
   /**
@@ -92,7 +104,7 @@ public class Die {
    * @return String representation of this Die
    */
    public static String toString( Die d ) {
-      return "";
+      return Integer.toString(d.pips);
    }
 
   /**

@@ -27,7 +27,7 @@
  *           -----  ----------  ------------  -----------------------------------------------------------
  *  @version 1.0.0  2017-02-09  B.J. Johnson  Initial writing and release
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-public class DiceSetEmpty {
+public class DiceSet {
 
   /**
    * private instance data
@@ -44,7 +44,7 @@ public class DiceSetEmpty {
    * @throws IllegalArgumentException if one or both arguments don't make sense
    * @note   parameters are checked for validity; invalid values throw "IllegalArgumentException"
    */
-   public DiceSetEmpty( int count, int sides ) {
+   public void DiceSetEmpty( int count, int sides ) {
       ds = new Die[ count ];
    }
 
@@ -52,7 +52,11 @@ public class DiceSetEmpty {
    * @return the sum of all the dice values in the set
    */
    public int sum() {
-      return 0;
+       int sum = 0;
+       for (Die i : ds){
+           sum += i.getValue();
+       }
+       return sum;
    }
 
   /**
@@ -61,6 +65,11 @@ public class DiceSetEmpty {
    *  the values of the dice in the set
    */
    public void roll() {
+       for (Die i : ds){
+           i.roll();
+       }
+       return ds;
+
    }
 
   /**
@@ -70,7 +79,9 @@ public class DiceSetEmpty {
    * @trhows IllegalArgumentException if the index is out of range
    */
    public int rollIndividual( int dieIndex ) {
-      return 0;
+      int arrayLength = ds.length();
+      int dieToRoll = Math.random() * arrayLength;
+      return ds[dieToRoll].roll();
    }
 
   /**
@@ -79,13 +90,20 @@ public class DiceSetEmpty {
    * @trhows IllegalArgumentException if the index is out of range
    */
    public int getIndividual( int dieIndex ) {
-      return -999;
+      if (dieIndex >= 0 && dieIndex < this.die.length()){
+          return ds[dieIndex];
+      } else {
+          throw new IllegalArgumentException("Invalid number of sides!");
+      }
    }
 
   /**
    * @return Public Instance method that returns a String representation of the DiceSet instance
    */
    public String toString() {
+       for (int i = 0; i < ds.length(); i++){
+
+       }
       String result = "";
       return result;
    }
@@ -101,13 +119,18 @@ public class DiceSetEmpty {
    * @return  tru iff this set is identical to the set passed as an argument
    */
    public boolean isIdentical( DiceSet ds ) {
-      return true;
+       if (ds == this.DiceSet){
+           return true;
+       } else {
+           return false;
+       }
+
    }
   /**
    * A little test main to check things out
    */
    public static void main( String[] args ) {
-      // You do this part!
+      
    }
 
 }

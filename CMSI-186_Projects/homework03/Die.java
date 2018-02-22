@@ -55,9 +55,9 @@ public class Die {
    * @throws       IllegalArgumentException
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
-   public void DieEmpty( int nSides ) {
+   public Die( int nSides ) throws IllegalArgumentException{
        if ( nSides < MINIMUM_SIDES ){
-           throw IllegalArgumentException("Invalid number of sides!");
+           throw new IllegalArgumentException("Invalid number of sides!");
        }
        sides = nSides;
    }
@@ -87,8 +87,10 @@ public class Die {
    * @return      The new number of sides, in case anyone is looking
    * @throws      IllegalArgumentException
    */
-   public void setSides( int sides ) {
+   public int setSides( int sides ) throws IllegalArgumentException {
+       if (sides < MINIMUM_SIDES) {throw new IllegalArgumentException();}
        this.sides = sides;
+       return sides;
    }
 
   /**
@@ -104,13 +106,14 @@ public class Die {
    * @return String representation of this Die
    */
    public static String toString( Die d ) {
-      return Integer.toString(d.pips);
+      return d.toString();
    }
 
   /**
    * A little test main to check things out
    */
    public static void main( String[] args ) {
+       Die d = null;
       System.out.println( "Hello world from the Die class..." );
    }
 

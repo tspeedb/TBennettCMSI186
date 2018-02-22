@@ -10,7 +10,6 @@ public class HighRoll {
 
     public static void main( String args[] ){
         Scanner vReader = new Scanner(System.in);
-        //String inputText = "";
         System.out.println("Start by entering # of dice");
         String diceInput = vReader.nextLine();
         System.out.println("Now enter # of sides");

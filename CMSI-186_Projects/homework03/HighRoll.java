@@ -6,14 +6,16 @@ import java.util.Scanner;
 
 public class HighRoll {
     static DiceSet dieGame = null;
-    static int highscore = 0;
+    public static int highscore = 0;
 
     public static void main( String args[] ){
         Scanner vReader = new Scanner(System.in);
         //String inputText = "";
-        System.out.println("Start by entering # of dice followed by # of sides ");
-        String inputText = vReader.nextLine();
-        dieGame = new DiceSet(Integer.parseInt(inputText), Integer.parseInt(inputText));
+        System.out.println("Start by entering # of dice");
+        String diceInput = vReader.nextLine();
+        System.out.println("Now enter # of sides");
+        String sidesInput = vReader.nextLine();
+        dieGame = new DiceSet(Integer.parseInt(diceInput), Integer.parseInt(sidesInput));
         while(true){
             System.out.println("Welcome to Dice Set!");
             System.out.println("Here are your options:");
@@ -46,7 +48,7 @@ public class HighRoll {
                    System.out.println(dieGame.toString());
                 }
                 else if ('4' == inputLine.charAt(0)){
-                    int highscore = dieGame.sum();
+                    highscore = dieGame.sum();
                     System.out.println(dieGame.toString());
                 }
                 else if ('5' == inputLine.charAt(0)){

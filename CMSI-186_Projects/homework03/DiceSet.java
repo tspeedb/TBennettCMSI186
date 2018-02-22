@@ -44,8 +44,14 @@ public class DiceSet {
    * @throws IllegalArgumentException if one or both arguments don't make sense
    * @note   parameters are checked for validity; invalid values throw "IllegalArgumentException"
    */
-   public void DiceSetEmpty( int count, int sides ) {
-      ds = new Die[ count ];
+   public void DiceSet( int count, int sides ) throws IllegalArgumentException {
+      if (count < 1 || sides < 4) {throw new IllegalArgumentException();}
+        this.count = count;
+        this.sides = sides;
+        ds = new Die[count];
+        for(int i = 0; i < count; i++){
+            ds[i] = new Die(sides);
+        }
    }
 
   /**
@@ -65,11 +71,9 @@ public class DiceSet {
    *  the values of the dice in the set
    */
    public void roll() {
-       for (Die i : ds){
-           i.roll();
+       for (int i = 0; i < ds.length; i++){
+           ds[i].roll();
        }
-       return ds;
-
    }
 
   /**
@@ -78,10 +82,9 @@ public class DiceSet {
    * @return the integer value of the newly rolled die
    * @trhows IllegalArgumentException if the index is out of range
    */
-   public int rollIndividual( int dieIndex ) {
-      int arrayLength = ds.length();
-      int dieToRoll = Math.random() * arrayLength;
-      return ds[dieToRoll].roll();
+   public int rollIndividual( int dieIndex ) throws IllegalArgumentException {
+      if (dieIndex>ds.length) {throw new IllegalArgumentException();}
+      return ds[dieIndex].roll();
    }
 
   /**
@@ -90,8 +93,8 @@ public class DiceSet {
    * @trhows IllegalArgumentException if the index is out of range
    */
    public int getIndividual( int dieIndex ) {
-      if (dieIndex >= 0 && dieIndex < this.die.length()){
-          return ds[dieIndex];
+      if (dieIndex >= 0 && dieIndex < ds.length){
+          return ds[dieIndex].getValue();
       } else {
           throw new IllegalArgumentException("Invalid number of sides!");
       }
@@ -101,10 +104,12 @@ public class DiceSet {
    * @return Public Instance method that returns a String representation of the DiceSet instance
    */
    public String toString() {
-       for (int i = 0; i < ds.length(); i++){
+       String result = "";
+       for (int i = 0; i < ds.length; i++){
+           result += new Integer(ds[i].getValue()).toString() + " ";
 
        }
-      String result = "";
+
       return result;
    }
 
@@ -112,25 +117,24 @@ public class DiceSet {
    * @return Class-wide version of the preceding instance method
    */
    public static String toString( DiceSet ds ) {
-      return "";
+      return ds.toString();
    }
 
   /**
    * @return  tru iff this set is identical to the set passed as an argument
    */
    public boolean isIdentical( DiceSet ds ) {
-       if (ds == this.DiceSet){
-           return true;
-       } else {
-           return false;
-       }
+       return (ds.sum() == this.sum() && ds.sides() == this.sides() && ds.count() == this.count());
 
    }
+
+
+
   /**
    * A little test main to check things out
    */
    public static void main( String[] args ) {
-      
+
    }
 
 }

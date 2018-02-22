@@ -8,9 +8,13 @@ public class HighRoll {
     static DiceSet dieGame = null;
     static int highscore = 0;
 
-    public static void main(String args[]){
+    public static void main( String args[] ){
         Scanner vReader = new Scanner(System.in);
-        while('q' != vReader.nextLine().charAt(0)){
+        //String inputText = "";
+        System.out.println("Start by entering # of dice followed by # of sides ");
+        String inputText = vReader.nextLine();
+        dieGame = new DiceSet(Integer.parseInt(inputText), Integer.parseInt(inputText));
+        while(true){
             System.out.println("Welcome to Dice Set!");
             System.out.println("Here are your options:");
             System.out.println("1. Roll all the dice");
@@ -20,39 +24,46 @@ public class HighRoll {
             System.out.println("5. Display the high score");
             System.out.println("6. Enter 'q' to quit the program\n");
             String inputLine = null;
-            try {
-                inputLine = vReader.nextLine();
+            BufferedReader input = new BufferedReader( new InputStreamReader (System.in));
+            try{
+                inputLine = input.readLine();
                 if( 0 == inputLine.length() ) {
                     System.out.println("enter some text!:");
                 }
-                else if (1 == Integer.parseInt(inputLine)){
+                else if ('1' == inputLine.charAt(0)){
                     dieGame.roll();
+                    System.out.println("All Dice Rolled");
                 }
-                else if (2 == Integer.parseInt(inputLine)){
+                else if ('2' == inputLine.charAt(0)){
                     System.out.println("Which die would you like to roll?");
-                    int dieIndex = Integer.parseInt(inputLine) - 1;
-                    dieGame.rollIndividual(dieIndex);
+                    inputLine = input.readLine();
+                    System.out.println(dieGame.rollIndividual(Integer.parseInt(inputLine)-1));
+                    System.out.println("Die number " + inputLine + " rolled");
 
                 }
-                else if (3 == Integer.parseInt(inputLine)){
+                else if ('3' == inputLine.charAt(0)){
                    System.out.println(dieGame.sum());
                    System.out.println(dieGame.toString());
                 }
-                else if (4 == Integer.parseInt(inputLine)){
+                else if ('4' == inputLine.charAt(0)){
+                    int highscore = dieGame.sum();
                     System.out.println(dieGame.toString());
                 }
-                else if (5 == Integer.parseInt(inputLine)){
-                    int highscore = dieGame.sum();
+                else if ('5' == inputLine.charAt(0)){
                     System.out.println("Your highscore is: " + highscore);
 
                 }
-                else if (6 == Integer.parseInt(inputLine)){
+                else if ('6' == inputLine.charAt(0)){
+                    System.out.println("Thanks for playing!");
+                    System.exit(0);
+                }
+                else if ('q' == inputLine.charAt(0)){
+                    System.out.println("Thanks for playing!");
                     System.exit(0);
                 }
             } catch (IOException ioe) {
                 System.out.println("Caught IOException");
             }
         }
-        System.out.println("Thanks for playing!");
     }
 }

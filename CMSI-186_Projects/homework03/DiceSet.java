@@ -44,8 +44,8 @@ public class DiceSet {
    * @throws IllegalArgumentException if one or both arguments don't make sense
    * @note   parameters are checked for validity; invalid values throw "IllegalArgumentException"
    */
-   public void DiceSet( int count, int sides ) throws IllegalArgumentException {
-      if (count < 1 || sides < 4) {throw new IllegalArgumentException();}
+   public DiceSet( int count, int sides ) throws IllegalArgumentException {
+      if (count < 1 || sides < 4) {throw new IllegalArgumentException("You hav invalid inputs");}
         this.count = count;
         this.sides = sides;
         ds = new Die[count];
@@ -123,8 +123,17 @@ public class DiceSet {
   /**
    * @return  tru iff this set is identical to the set passed as an argument
    */
+
+   public int sides(){
+       return this.sides;
+   }
+
+   public int count(){
+       return this.count;
+   }
+
    public boolean isIdentical( DiceSet ds ) {
-       return (ds.sum() == this.sum() && ds.sides() == this.sides() && ds.count() == this.count());
+       return (ds.sum() == this.sum() && ds.count() == this.count() && ds.sides() == this.sides());
 
    }
 
@@ -134,6 +143,27 @@ public class DiceSet {
    * A little test main to check things out
    */
    public static void main( String[] args ) {
+       DiceSet a = null;
+       try {a = new DiceSet(1, 1);}
+       catch (IllegalArgumentException iae) {System.out.println ("Too few sides");}
+       try {a = new DiceSet(1, 2);}
+       catch (IllegalArgumentException iae) {System.out.println ("Too few sides");}
+       try {a = new DiceSet(1, 3);}
+       catch (IllegalArgumentException iae) {System.out.println ("Too few sides");}
+       try {a = new DiceSet(0, 1);}
+       catch (IllegalArgumentException iae) {System.out.println ("Too few die and sides");}
+
+       try{
+           a = new DiceSet(2, 4);
+           System.out.println("Sum of Die: " + a.sum());
+           a.roll();
+           System.out.println("Just rolled all Die");
+           System.out.println("Rolling individual die at index 0: " + a.rollIndividual(0));
+           System.out.println("Getting value of die at index 0: " + a.getIndividual(0));
+           System.out.println("String of Die: " + a.toString());
+
+       } catch (IllegalArgumentException iae) {System.out.println ("Illegal Argument Exception");}
+
 
    }
 

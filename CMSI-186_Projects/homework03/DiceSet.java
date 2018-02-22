@@ -59,8 +59,8 @@ public class DiceSet {
    */
    public int sum() {
        int sum = 0;
-       for (Die i : ds){
-           sum += i.getValue();
+       for (int i = 0; i < ds.length; i++){
+           sum += ds[i].getValue();
        }
        return sum;
    }

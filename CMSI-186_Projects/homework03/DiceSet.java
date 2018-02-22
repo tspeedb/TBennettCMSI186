@@ -106,7 +106,7 @@ public class DiceSet {
    public String toString() {
        String result = "";
        for (int i = 0; i < ds.length; i++){
-           result += new Integer(ds[i].getValue()).toString() + " ";
+           result += Integer.toString((ds[i].getValue())) + " ";
 
        }
 

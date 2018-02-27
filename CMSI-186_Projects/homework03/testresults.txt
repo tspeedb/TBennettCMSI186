@@ -1,0 +1,785 @@
+-5 has too few sides, enter a new value
+-4 has too few sides, enter a new value
+-3 has too few sides, enter a new value
+-2 has too few sides, enter a new value
+-1 has too few sides, enter a new value
+0 has too few sides, enter a new value
+1 has too few sides, enter a new value
+2 has too few sides, enter a new value
+3 has too few sides, enter a new value
+Roll test: 4 sided die
+Rolled a 1
+Value of this die 1
+String of this die 1
+Rerolled a 2
+Roll test: 5 sided die
+Rolled a 2
+Value of this die 2
+String of this die 2
+Rerolled a 4
+Roll test: 6 sided die
+Rolled a 2
+Value of this die 2
+String of this die 2
+Rerolled a 5
+Roll test: 7 sided die
+Rolled a 3
+Value of this die 3
+String of this die 3
+Rerolled a 1
+Roll test: 8 sided die
+Rolled a 8
+Value of this die 8
+String of this die 8
+Rerolled a 8
+Roll test: 9 sided die
+Rolled a 1
+Value of this die 1
+String of this die 1
+Rerolled a 6
+Roll test: 10 sided die
+Rolled a 4
+Value of this die 4
+String of this die 4
+Rerolled a 3
+Roll test: 11 sided die
+Rolled a 2
+Value of this die 2
+String of this die 2
+Rerolled a 4
+Roll test: 12 sided die
+Rolled a 5
+Value of this die 5
+String of this die 5
+Rerolled a 7
+Roll test: 13 sided die
+Rolled a 8
+Value of this die 8
+String of this die 8
+Rerolled a 5
+Roll test: 14 sided die
+Rolled a 5
+Value of this die 5
+String of this die 5
+Rerolled a 11
+Roll test: 15 sided die
+Rolled a 1
+Value of this die 1
+String of this die 1
+Rerolled a 2
+Roll test: 16 sided die
+Rolled a 13
+Value of this die 13
+String of this die 13
+Rerolled a 8
+Roll test: 17 sided die
+Rolled a 17
+Value of this die 17
+String of this die 17
+Rerolled a 3
+Roll test: 18 sided die
+Rolled a 18
+Value of this die 18
+String of this die 18
+Rerolled a 4
+Roll test: 19 sided die
+Rolled a 3
+Value of this die 3
+String of this die 3
+Rerolled a 9
+Roll test: 20 sided die
+Rolled a 4
+Value of this die 4
+String of this die 4
+Rerolled a 4
+Roll test: 21 sided die
+Rolled a 7
+Value of this die 7
+String of this die 7
+Rerolled a 21
+Too few sides
+Too few sides
+Too few sides
+Too few die and sides
+Sum of Die: 0
+Just rolled all Die
+Rolling individual die at index 0: 1
+Getting value of die at index 0: 1
+String of Die: 1 3 
+TESTING THE DIE CLASS: TEST CONSTRUCTOR FOR INVALID NUMBERS OF SIDES:
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+TESTING THE DIE CLASS: TESTS ON 4-SIDED DIE:
+   roll() test for 4 sided die: 
+   You rolled a 3
+   You rolled a 3
+   You rolled a 1
+   You rolled a 1
+   You rolled a 4
+   Current value is: 4
+TESTING THE DIE CLASS: TESTS ON 5-SIDED DIE:
+   roll() test for 5 sided die: 
+   You rolled a 5
+   You rolled a 1
+   You rolled a 4
+   You rolled a 2
+   You rolled a 5
+   Current value is: 5
+TESTING THE DIE CLASS: TESTS ON 6-SIDED DIE:
+   roll() test for 6 sided die: 
+   You rolled a 5
+   You rolled a 3
+   You rolled a 5
+   You rolled a 6
+   You rolled a 3
+   Current value is: 3
+TESTING THE DIE CLASS: TESTS ON 7-SIDED DIE:
+   roll() test for 7 sided die: 
+   You rolled a 7
+   You rolled a 7
+   You rolled a 7
+   You rolled a 1
+   You rolled a 1
+   Current value is: 1
+TESTING THE DIE CLASS: TESTS ON 8-SIDED DIE:
+   roll() test for 8 sided die: 
+   You rolled a 2
+   You rolled a 8
+   You rolled a 6
+   You rolled a 6
+   You rolled a 7
+   Current value is: 7
+TESTING THE DIE CLASS: TESTS ON 11-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 3
+      You rolled a 5
+      You rolled a 8
+      You rolled a 5
+      You rolled a 2
+TESTING THE DIE CLASS: TESTS ON 17-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 12
+      current value is: 12
+TESTING THE DIE CLASS: TESTS ON 111-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 104
+      current value is: 104
+......End of Die Class Testing.....
+
+
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 3 SIX-SIDED DICE:
+  DiceSet: 3 dice, six sided - ds36:
+      initialized ds36 contents             : 0 0 0 
+      after collective roll ds36 contents   : 2 6 3 
+      after individual roll(2) ds36 contents: 2 6 1 
+      sum of dice values is: 9
+   Re-rolling all dice
+      after collective roll ds36 contents   : 2 2 1 
+      after individual roll(2) ds36 contents: 2 2 3 
+      sum of dice values is                 : 7
+   Test of getIndividual(): 
+      value of die at index 0: 2
+      value of die at index 1: 2
+      value of die at index 2: 3
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 6 NINE-SIDED DICE:
+   DiceSet: 6 dice, nine sided - ds69:
+      initialized ds36 contents             : 0 0 0 0 0 0 
+      after collective roll ds69 contents   : 5 2 5 1 9 1 
+      after individual roll(2) ds69 contents: 5 2 5 1 9 1 
+      sum of dice values is                 : 23
+   Re-rolling all dice
+      after collective roll ds69 contents   : 8 9 1 8 5 8 
+      after individual roll(3) ds69 contents: 8 9 1 9 5 8 
+      sum of dice values is                 : 40
+   Test of getIndividual(): 
+      value of die at index 0: 8
+      value of die at index 1: 9
+      value of die at index 2: 1
+      value of die at index 3: 9
+      value of die at index 4: 5
+      value of die at index 5: 8
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 9 SEVENTEEN-SIDED DICE:
+   DiceSet: 9 dice, 17 sided - ds917:
+      initialized ds36 contents              : 0 0 0 0 0 0 0 0 0 
+      after collective roll ds917 contents   : 17 1 10 17 13 10 11 16 17 
+      after individual roll(6) ds917 contents: 17 1 10 17 13 10 7 16 17 
+      sum of dice values is                  : 108
+   Re-rolling all dice
+      after collective roll ds917 contents   : 13 15 7 14 10 8 2 6 2 
+      after individual roll(8) ds69 contents : 13 15 7 14 10 8 2 6 13 
+      sum of dice values is                  : 88
+   Test of getIndividual(): 
+      value of die at index 0: 13
+      value of die at index 1: 15
+      value of die at index 2: 7
+      value of die at index 3: 14
+      value of die at index 4: 10
+      value of die at index 5: 8
+      value of die at index 6: 2
+      value of die at index 7: 6
+      value of die at index 8: 13
+TESTING THE DICESET CLASS: TEST 'isIdentical()' FOR 9 SEVENTEEN-SIDED DICE:
+   Test of isIndentical(): 
+      Test of ds917 against ds69   : false
+      Test of ds917 against itself : true
+TESTING THE DICESET CLASS: TEST 'isIdentical()' FOR NEW SET OF 9 SEVENTEEN-SIDED DICE:
+   DiceSet ds917 contents       : 15 6 10 16 11 6 3 4 6 
+      New DiceSet ds2_917 contents : 7 11 3 8 1 3 15 10 10 
+      Test of ds917 against ds2_917: false
+......End of DiceSet Class Testing.....
+
+
+Start by entering # of dice
+Now enter # of sides
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+4
+Die number 3 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+2
+Die number 5 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+3
+Die number 2 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+13
+1 3 4 3 2 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+1 3 4 3 2 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Your highscore is: 13
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+1
+Die number 5 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+4
+Die number 1 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+12
+4 3 2 2 1 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+4 3 2 2 1 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Your highscore is: 12
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Thanks for playing!
+Start by entering # of dice
+Now enter # of sides
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+4
+Die number 11 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+9
+Die number 1 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+4
+Die number 7 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+99
+9 16 8 10 13 3 4 13 6 13 4 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+9 16 8 10 13 3 4 13 6 13 4 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Your highscore is: 99
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+14
+Die number 5 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+11
+Die number 3 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+102
+4 9 11 5 14 17 13 15 4 2 8 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+4 9 11 5 14 17 13 15 4 2 8 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Your highscore is: 102
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Thanks for playing!
+Start by entering # of dice
+Now enter # of sides
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+2
+Die number 29 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+3
+Die number 1 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+3
+Die number 17 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+69
+3 1 1 2 4 3 3 3 4 2 4 4 2 2 2 1 3 3 2 4 1 2 3 2 1 2 2 1 2 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+3 1 1 2 4 3 3 3 4 2 4 4 2 2 2 1 3 3 2 4 1 2 3 2 1 2 2 1 2 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Your highscore is: 69
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+All Dice Rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+1
+Die number 19 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Which die would you like to roll?
+2
+Die number 23 rolled
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+74
+2 1 3 1 1 3 1 2 4 1 4 2 4 3 4 3 3 3 1 4 1 3 2 4 3 2 3 2 4 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+2 1 3 1 1 3 1 2 4 1 4 2 4 3 4 3 3 3 1 4 1 3 2 4 3 2 3 2 4 
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Your highscore is: 74
+Welcome to Dice Set!
+Here are your options:
+1. Roll all the dice
+2. Roll a single die
+3. Calculate the score for this set
+4. Save this score as high score
+5. Display the high score
+6. Enter 'q' to quit the program
+
+Thanks for playing!

@@ -6,7 +6,7 @@ Purpose: Determine the times in which the hands of a clock are at a specific deg
 */
 
 //DECIMAL FORMAT CLASS
-
+import java.text.DecimalFormat;
 
 public class Clock {
   /**
@@ -20,6 +20,7 @@ public class Clock {
    private double timeSlice = 0;
    private double handAngle = 0;
    private double totalSeconds = 0;
+   public static final DecimalFormat df = new DecimalFormat( "##.##" );
   /**
    *  Constructor goes here
    */
@@ -115,7 +116,16 @@ public class Clock {
    *  @return double-precision value of the angle between the two hands
    */
    public double getHandAngle() {
-      return handAngle;
+      if (handAngle <= 180){
+          return Math.abs((getMinuteHandAngle())-(getHourHandAngle()));
+      }
+      else if (handAngle > 180){
+          return 180 - Math.abs((getMinuteHandAngle())-(getHourHandAngle()));
+      } else {
+          return -1;
+      }
+      //if degrees > 180, 180-gethand angle
+      //if degrees < 180, gethand angle which is the absolute value of minute hand - hour hand
    }
 
   /**
@@ -132,11 +142,13 @@ public class Clock {
    *  @return String value of the current clock
    */
    public String toString() {
-      return "Total seconds: " + getTotalSeconds() + "\t" +
-             "Hand angle: " + getHandAngle() + "\t" +
-             "Minute hand angle: " + getMinuteHandAngle() + "\t" +
-             "Hour hand angle: " + getHourHandAngle() + "\t"
-             ;
+      double hours = (double)((int)(this.getTotalSeconds() / 3600));
+      double minutes = (double)((int)(this.getTotalSeconds() / 60));
+      double seconds = this.getTotalSeconds() - ((hours * 3600) + (minutes * 60));
+      return df.format(hours) + ":" + df.format(minutes) + ":" + df.format(seconds);
+
+
+             //Should only have 00:00:00 H:M:S using Decimal Format (import java.util.decimalformat)
    }
 
   /**
@@ -150,13 +162,29 @@ public class Clock {
 
       System.out.println( "\nCLOCK CLASS TESTER PROGRAM\n" +
                           "--------------------------\n" );
-      System.out.println( "  Creating a new clock: " );
+      System.out.println( "Creating a new clock: " );
       Clock clock = new Clock(args);
-      System.out.println( "    New clock created: " + clock.toString() );
-      System.out.println( "    Testing validateAngleArg()....");
-      System.out.print( "      sending '  0 degrees', expecting double value   0.0" );
-      try { System.out.println( (0.0 == clock.validateAngleArg( "0.0" )) ? " - got 0.0" : " - no joy" ); }
+      System.out.println( "Created clock: " + clock.toString() );
+      System.out.println( "Testing validateAngleArg()....");
+      System.out.print( "sending '0 degrees', expecting double value 0.0" );
+      try { System.out.println( (0.0 == clock.validateAngleArg( "0.0" )) ? " - got 0.0" : " failed to validate" ); }
       catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
+      System.out.println("Setting clock timeSlice to 1 second");
+      clock.timeSlice = 1;
+      System.out.println( "Ticking for 1000 seconds");
+      for(int i = 0; i<1000; i++){
+          clock.tick();
+      }
+      System.out.println("toString of clock after ticking: ");
+      System.out.println(clock.toString());
+      System.out.println("Hour hand angle of clock after ticking: ");
+      System.out.println(clock.getHourHandAngle());
+      System.out.println("Minute hand angle of clock after ticking: ");
+      System.out.println(clock.getMinuteHandAngle());
+      System.out.println("Hand angle of clock after ticking: ");
+      System.out.println(clock.getHandAngle());
+      System.out.println("Total seconds elapsed after ticking: ");
+      System.out.println(clock.getTotalSeconds());
    }
 }
 

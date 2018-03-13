@@ -18,7 +18,7 @@ public class Clock {
    private static final double HOUR_HAND_DEGREES_PER_SECOND = 0.00834;
    private static final double MINUTE_HAND_DEGREES_PER_SECOND = 0.1;
    private double timeSlice = 0;
-   private double handAngle = 0;
+   private double targetAngle = 0;
    private double totalSeconds = 0;
    public static final DecimalFormat df = new DecimalFormat( "##.##" );
   /**
@@ -27,11 +27,11 @@ public class Clock {
    public Clock(String [] args) {
 
        if (args.length == 1){
-           handAngle = Double.parseDouble(args[0]);
+           targetAngle = Double.parseDouble(args[0]);
            timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
        }
        else if (args.length == 2){
-           handAngle = Double.parseDouble(args[0]);
+           targetAngle = Double.parseDouble(args[0]);
            timeSlice = Double.parseDouble(args[1]);
        } else {
            System.out.println("Invalid input values");
@@ -69,7 +69,7 @@ public class Clock {
           return Math.abs(var) % 360;
       }
       else {
-          return -1;
+          throw new NumberFormatException("Invalid angle value!");
      }
    }
 
@@ -86,7 +86,7 @@ public class Clock {
    *         to take a VERY LONG TIME to complete!
    */
    public double validateTimeSliceArg( String argValue ) {
-      if (argValue == null) {
+      if (argValue == null || argValue == "") {
           timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
           return timeSlice;
       } else {
@@ -100,7 +100,7 @@ public class Clock {
    *  @return double-precision value of the hour hand location
    */
    public double getHourHandAngle() {
-      return ((this.getTotalSeconds() % 360) * HOUR_HAND_DEGREES_PER_SECOND);
+      return ((this.getTotalSeconds() % 43200) * HOUR_HAND_DEGREES_PER_SECOND);
    }
 
   /**
@@ -108,7 +108,7 @@ public class Clock {
    *  @return double-precision value of the minute hand location
    */
    public double getMinuteHandAngle() {
-      return ((this.getTotalSeconds() % 60) * MINUTE_HAND_DEGREES_PER_SECOND);
+      return ((this.getTotalSeconds() % 3600) * MINUTE_HAND_DEGREES_PER_SECOND);
    }
 
   /**
@@ -116,10 +116,10 @@ public class Clock {
    *  @return double-precision value of the angle between the two hands
    */
    public double getHandAngle() {
-      if (handAngle <= 180){
+      if (targetAngle <= 180){
           return Math.abs((getMinuteHandAngle())-(getHourHandAngle()));
       }
-      else if (handAngle > 180){
+      else if (targetAngle > 180){
           return 180 - Math.abs((getMinuteHandAngle())-(getHourHandAngle()));
       } else {
           return -1;
@@ -137,13 +137,21 @@ public class Clock {
       return totalSeconds;
    }
 
+   public double getTimeSlice() {
+      return timeSlice;
+   }
+
+   public double getTargetAngle() {
+      return targetAngle;
+   }
+
   /**
    *  Method to return a String representation of this clock
    *  @return String value of the current clock
    */
    public String toString() {
       double hours = (double)((int)(this.getTotalSeconds() / 3600));
-      double minutes = (double)((int)(this.getTotalSeconds() / 60));
+      double minutes = (double)(((int)(this.getTotalSeconds() / 60)) - (hours * 60));
       double seconds = this.getTotalSeconds() - ((hours * 3600) + (minutes * 60));
       return df.format(hours) + ":" + df.format(minutes) + ":" + df.format(seconds);
 
@@ -187,4 +195,3 @@ public class Clock {
       System.out.println(clock.getTotalSeconds());
    }
 }
-

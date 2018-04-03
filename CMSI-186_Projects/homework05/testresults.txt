@@ -1,0 +1,152 @@
+.
+.
+======================================
+... Testing Ball class ...
+======================================
+Creating a new static ball at origin of default time slice...
+Testing Move() ...
+New xPosition: 0.99 and new xVelocity: 0.99
+New yPosition: 0.99 and new yVelocity: 0.99
+Creating new ball 5 5 5 5 1
+Testing Move() ...
+New xPosition: 4.95 and new xVelocity: 4.95
+New yPosition: 4.95 and new yVelocity: 4.95
+Ticking 5 times
+Position:(4.901, 4.901) Velocity:(4.901, 4.901)
+Position:(4.851, 4.851) Velocity:(4.851, 4.851)
+Position:(4.803, 4.803) Velocity:(4.803, 4.803)
+Position:(4.755, 4.755) Velocity:(4.755, 4.755)
+New xPosition: 4.754950249499999 and new xVelocity: 4.754950249499999
+New yPosition: 4.754950249499999 and new yVelocity: 4.754950249499999
+.
+.
+======================================
+... Testing Timer class ...
+======================================
+.
+.
+======================================
+... Testing SoccerSim no args...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+No args entered
+Try: java SoccerSim <X Location> <Y Location> <X Velocity> <Y Velocity> <Time Slice>
+.
+.
+======================================
+... Testing SoccerSim one arg...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim two args...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim three args...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim six args...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim out of bounds...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim negative time slice...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim time slice too large...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim time slice value of zero...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim check for collision...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim valid ball should come to rest...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim valid ball should go out of bounds...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim valid ball set six balls subsecond time slice...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim valid ball set five balls 1.234 second time slice...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... Testing SoccerSim valid ball set ten balls 10 second time slice...
+======================================
+WELCOME TO SOCCER SIMMULATOR!
+
+
+.
+.
+======================================
+... End of SoccerSim Testing...
+======================================

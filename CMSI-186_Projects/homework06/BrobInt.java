@@ -67,7 +67,7 @@ this handles both cases
  *
  *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import java.util.Arrays;
-
+//Arrays.toString();
 public class BrobInt {
 
    public static final BrobInt ZERO     = new BrobInt(  "0" );      /// Constant for "zero"
@@ -84,10 +84,10 @@ public class BrobInt {
 
   /// Some constants for other intrinsic data types
   ///  these can help speed up the math if they fit into the proper memory space
-   public static final BrobInt MAX_INT  = new BrobInt( new Integer( Integer.MAX_VALUE ).toString() );
-   public static final BrobInt MIN_INT  = new BrobInt( new Integer( Integer.MIN_VALUE ).toString() );
-   public static final BrobInt MAX_LONG = new BrobInt( new Long( Long.MAX_VALUE ).toString() );
-   public static final BrobInt MIN_LONG = new BrobInt( new Long( Long.MIN_VALUE ).toString() );
+   // public static final BrobInt MAX_INT  = new BrobInt( new Integer( Integer.MAX_VALUE ).toString() );
+   // public static final BrobInt MIN_INT  = new BrobInt( new Integer( Integer.MIN_VALUE ).toString() );
+   // public static final BrobInt MAX_LONG = new BrobInt( new Long( Long.MAX_VALUE ).toString() );
+   // public static final BrobInt MIN_LONG = new BrobInt( new Long( Long.MIN_VALUE ).toString() );
 
   /// These are the internal fields
    private String internalValue = "";        // internal String representation of this BrobInt
@@ -104,18 +104,23 @@ public class BrobInt {
    *  @param  value  String value to make into a BrobInt
    */
    public BrobInt( String value ) {
-
-       int numOfBytesInArray = (int) Math.ceil(value.length() / 8);
+       super();
+       int numOfBytesInArray = (int) (value.length() + 2);
 
        if (value.substring(0, 1) == "-"){
            sign = 1;
-       }else{
+           value = value.substring(1, (value.length()));
+       }else if(value.substring(0, 1) == "+"){
+           sign = 0;
+           value = value.substring(1, (value.length()));
+       }
+       else{
            sign = 0;
        }
 
        byte arrayOfBytes [] = new byte [numOfBytesInArray];
-       for(int i = 0; i <= numOfBytesInArray; i++){
-           arrayOfBytes[i] = Byte.valueOf(value.substring((1+(i*8)), (1+((i+1)*8))));
+       for(int i = 0; i < value.length(); i++){
+           arrayOfBytes[i] = Byte.valueOf(value.substring(i, i+1));
        }
 
 
@@ -130,6 +135,14 @@ public class BrobInt {
    *  note also that this must check for the '+' and '-' sign digits
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public boolean validateDigits() {
+/*     for (int i = 0; i <= numOfBytesInArray; i++){
+         if (arrayOfBytes[i].contains("[a-zA-Z]+")){
+             throw new NumberFormatException( "Value not a number");
+             return false;
+         }
+     }
+     return true;
+*/
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -139,7 +152,7 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt reverser() {
        int arrayLength = numOfBytesInArray;
-       for(int i: arrayOfBytes){
+       for(int i = 0; i <= arrayLength; i++){
            arrayOfBytes[i] = arrayOfBytes[arrayLength-i];
        }
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
@@ -226,6 +239,7 @@ public class BrobInt {
    *        THAT was easy.....
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public int compareTo( BrobInt gint ) {
+       //string comparison array
       return (internalValue.compareTo( gint.toString() ));
    }
 
@@ -284,6 +298,10 @@ public class BrobInt {
    public static void main( String[] args ) {
       System.out.println( "\n  Hello, world, from the BrobInt program!!\n" );
       System.out.println( "\n   You should run your tests from the BrobIntTester...\n" );
+
+      BrobInt b = new BrobInt(args[0]);
+
+      b.toString();
 
       System.exit( 0 );
    }

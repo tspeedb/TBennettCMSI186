@@ -2,7 +2,7 @@
 Author: Tommy Bennett
 FileName: BrobInt.java
 Date: 4/19/2018
-Purpose: Do math with big a$$ numbers
+Purpose: Do math with big numbers
 */
 
 //Public-Private key cryptography
@@ -318,7 +318,8 @@ public class BrobInt {
        }
        if (this.sign == 1 && gint.sign == 0){
            thisCopy.sign = 0;
-           return thisCopy.addByte( gintCopy);
+           result = "-" + thisCopy.addByte( gintCopy);
+           return new BrobInt(result);
        }
 
 
@@ -392,20 +393,23 @@ public class BrobInt {
            result += "-";
        }
 
-        // if(compare >= 0){
-        //     BrobInt a = new BrobInt(this.toString());
-        //     BrobInt b = new BrobInt(gint.toString());
-        // } else {
-        //     BrobInt a = new BrobInt(gint.toString());
-        //     BrobInt b = new BrobInt(this.toString());
-        // }
-        //
-        // if (a.compareTo(b) == 1){
-        //     byte[] me = new byte[a.length];
-        //     for (int i = 0; i <= a.length; i ++){
-        //         me[i] = a[i];
-        //     }
-        // }
+       // BrobInt a;
+       // BrobInt b;
+       //
+       //  if(compare >= 0){
+       //      BrobInt a = new BrobInt(this.toString());
+       //      BrobInt b = new BrobInt(gint.toString());
+       //  } else {
+       //      BrobInt a = new BrobInt(gint.toString());
+       //      BrobInt b = new BrobInt(this.toString());
+       //  }
+       //
+       //  if (a.compareTo(b) == 1){
+       //      byte[] me = new byte[a.length];
+       //      for (int i = 0; i <= a.length; i ++){
+       //          me[i] = a[i];
+       //      }
+       //  }
 
 // dimension the byte arrays and initialize them appropriately for their lengths;
 //   'a' gets the longer string, 'b' gets the shorter one

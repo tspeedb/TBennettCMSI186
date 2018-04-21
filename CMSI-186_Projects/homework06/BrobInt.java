@@ -207,7 +207,12 @@ public class BrobInt {
                          carry = 0;
                      }
                  }
+
             }
+            if(carry > 0) {
+                result = Integer.toString(carry) + result;
+            }
+
             if(this.sign == 1){
                 return new BrobInt("-"+result);
             }else{
@@ -225,6 +230,9 @@ public class BrobInt {
                          carry = 0;
                      }
                  }
+            }
+            if(carry > 0) {
+                result = Integer.toString(carry) + result;
             }
             if(gint.sign == 1){
                 return new BrobInt("-"+result);
@@ -290,6 +298,19 @@ public class BrobInt {
        //      larger.sign = 1;
        //  }
        //
+       if (this.sign == 1 && gint.sign == 1 && this.compareTo(gint) == 1){
+           thisCopy.sign = 0;
+           gintCopy.sign = 0;
+           result = "-" + thisCopy.subtractByte(gintCopy);
+           return new BrobInt(result);
+       }
+       if (this.sign == 1 && gint.sign == 1 && this.compareTo(gint) == -1){
+           thisCopy.sign = 0;
+           gintCopy.sign = 0;
+           return gintCopy.subtractByte(thisCopy);
+       }
+
+
        if (gint.sign == 1){
            gintCopy.sign = 0;
            return this.addByte(gintCopy);
@@ -298,16 +319,6 @@ public class BrobInt {
        if (this.sign == 1 && gint.sign == 0){
            thisCopy.sign = 0;
            return thisCopy.addByte( gintCopy);
-       }
-       if (this.sign == 1 && gint.sign == 1 && this.compareTo(gint) == 1){
-           thisCopy.sign = 0;
-           gintCopy.sign = 0;
-           return thisCopy.subtractByte(gintCopy);
-       }
-       if (this.sign == 1 && gint.sign == 1 && this.compareTo(gint) == -1){
-           thisCopy.sign = 0;
-           gintCopy.sign = 0;
-           return gintCopy.addByte(thisCopy);
        }
 
 
@@ -478,30 +489,35 @@ public class BrobInt {
    *        THAT was easy.....
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public int compareTo( BrobInt gint ) {
-       //SIGN: 0 is positive, 1 is negative
-       //COMPARETO: returns 1 if this > gint, returns -1 if gint > this
-       // if(this.sign == 0 && gint.sign == 1){
-       //     return 1;
-       // }
-       // if(this.sign == 1 && gint.sign == 0){
-       //     return -1;
-       // }
-      if( internalValue.length() > gint.internalValue.length() ) {
-         return 1;
-      } else if( internalValue.length() < gint.internalValue.length() ) {
-         return (-1);
-      } else {
-         for( int i = 0; i < internalValue.length(); i++ ) {
-            Character a = new Character( internalValue.charAt(i) );
-            Character b = new Character( gint.internalValue.charAt(i) );
-            if( new Character(a).compareTo( new Character(b) ) > 0 ) {
-               return 1;
-            } else if( new Character(a).compareTo( new Character(b) ) < 0 ) {
-               return (-1);
-            }
-         }
-      }
-      return 0;
+       // handle the signs here
+        if( 1 == sign && 0 == gint.sign ) {
+           return -1;
+        } else if( 0 == sign && 1 == gint.sign ) {
+           return 1;
+        }
+
+       // the signs are the same at this point
+       // check the length and return the appropriate value
+       //   1 means this is longer than gint, hence larger
+       //  -1 means gint is longer than this, hence larger
+        if( internalValue.length() > gint.internalValue.length() ) {
+           return 1;
+        } else if( internalValue.length() < gint.internalValue.length() ) {
+           return (-1);
+
+       // otherwise, they are the same length, so compare absolute values
+        } else {
+           for( int i = 0; i < internalValue.length(); i++ ) {
+              Character a = Character.valueOf( internalValue.charAt(i) );
+              Character b = Character.valueOf( gint.internalValue.charAt(i) );
+              if( Character.valueOf(a).compareTo( Character.valueOf(b) ) > 0 ) {
+                 return 1;
+              } else if( Character.valueOf(a).compareTo( Character.valueOf(b) ) < 0 ) {
+                 return (-1);
+              }
+           }
+        }
+        return 0;
   }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

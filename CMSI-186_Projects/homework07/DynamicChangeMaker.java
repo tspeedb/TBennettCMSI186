@@ -31,13 +31,53 @@ import java.util.Collections;
 import java.util.Arrays;
 
 public class DynamicChangeMaker {
-    private int[] denoms = null;
+    private static int[] denoms = null;
+    private static int value = 0;
 
     /**
      *  Constructor goes here
      */
     public static Tuple makeChangeWithDynamicProgramming(int[] denoms, int value) {
         //rows is num of denoms, cols is one plus target
+        // for(int i: denoms){
+        //     denomString
+        // }
+        // String args[] = Integer.toString(denoms + value);
+        //
+        // validateArgs(args);
+
+        //validateArgs(denoms)
+        try {
+            if (value < 0){
+                System.out.println("Cannot make change from a negative amount.");
+                System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
+                return Tuple.IMPOSSIBLE;
+
+            }
+            for (int i = 0; i < denoms.length; i++){
+                if (denoms[i] <= 0){
+                    System.out.println("Cannot make change from a negative amount.");
+                    System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
+                    return Tuple.IMPOSSIBLE;
+                }
+                for (int j = 0; j < i; j++){
+                    if (denoms[j] == denoms[i]){
+                        System.out.println("Duplicate denominations are present");
+                        System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
+                        return Tuple.IMPOSSIBLE;
+                    }
+                }
+            }
+        } catch(NumberFormatException nfe){
+            System.out.println("Denominations must all be integers greater than or equal to one.");
+            System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
+            return Tuple.IMPOSSIBLE;
+
+        }
+
+        //VALIDATING ARGS PRIOR TO HERE
+
+
         int totalDenoms = denoms.length;
         Tuple[][] chart = new Tuple[totalDenoms][value + 1];
         String denomString = "";
@@ -87,45 +127,62 @@ public class DynamicChangeMaker {
 
     }
 
-    public static void validateArgs(String args[]) throws NumberFormatException {
+    public static void validateArgs(String args[]) throws NumberFormatException, IllegalArgumentException {
         // String denomString = "";
         try{
            if (args.length != 2){
-               System .out.println("Please enter a total amount you would like to make followed by a comma-separated list with values you would like to make of the total amount.");
+               System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
                return;
            }
            int value = Integer.parseInt(args[0]);
            if (value < 0){
                System.out.println("Cannot make change from a negative amount.");
-               System .out.println("Please enter a total amount you would like to make followed by a comma-separated list with values you would like to make of the total amount.");
+               System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
                return;
            }
-           String denomString = "";
+           String denomString = args[1];
            int[] denoms = new int[denomString.length()];
-           for (int i = 0; i < denoms.length; i++){
-               denomString += Integer.toString(denoms[i]);
+
+           int a = 0;
+           for(String index: denomString.split(",")){
+               denoms[a] = Integer.parseInt(index);
+               a++;
            }
+
+           if (args[1].contains("0") == true){
+               System.out.println("Cannot make change with no coin value");
+               throw new IllegalArgumentException("Illegal coin value");
+
+           }
+
+           // String denomString = args[1].split(",");
+           // // for (int i = 0; i < args[1].length(); i++){
+           // //     denomString += Integer.toString(denoms[i]);
+           // // }
            // int[] denoms = new int[denomString.length()];
 
-           for(int i = 0; i < args.length; i++){
-               denoms[i] = Integer.parseInt(denomString.substring(i, (i+1)));
+// HANDLE CONCATINATION ARGS[1]
+
+           // if(denomString.contains())
+
+           for(int i = 0; i < denoms.length; i++){
+               // denoms[i] = Integer.parseInt(denomString.substring(i, (i+1)));
                if (denoms[i] <= 0) {
                    System.out.println("Denominations cannot be less than or equal to zero");
-                   System .out.println("Please enter a total amount you would like to make followed by a comma-separated list with values you would like to make of the total amount.");
-
+                   System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
                    return;
                }
                for (int j = 0; j < i; j++){
                    if (denoms[j] == denoms[i]){
                        System.out.println("Duplicate denominations are present");
-                       System .out.println("Please enter a total amount you would like to make followed by a comma-separated list with values you would like to make of the total amount.");
+                       System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
                        return;
                    }
                }
-           }
+            }
         } catch(NumberFormatException nfe){
             System.out.println("Denominations must all be integers greater than or equal to one.");
-            System .out.println("Please enter a total amount you would like to make followed by a comma-separated list with values you would like to make of the total amount.");
+            System .out.println("Please enter a a comma-separated list with values you would like to make, followed by a total amount.");
             return;
         }
 

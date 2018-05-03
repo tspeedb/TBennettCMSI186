@@ -30,12 +30,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
 
+/**
+ * This class dtermines the lowest number of coins that can be used to create a given value.
+ */
 public class DynamicChangeMaker {
+
+    /**
+     * int array that contains all given denominations
+     */
     private static int[] denoms = null;
+    /**
+     * Constant representing the value that one is adding up to.
+     */
     private static int value = 0;
 
     /**
-     *  Constructor goes here
+     * Constructs a chart based on the given denominations to find the fewest possible denominations to produce a value
+     *
+     * @param denoms an array of all denominations
+     * @param value the total value the denomination sare adding up to
+     *
+     * @throws NumberFormatException if the denominations or value are not present or are 0 or negative
      */
     public static Tuple makeChangeWithDynamicProgramming(int[] denoms, int value) {
         //rows is num of denoms, cols is one plus target
@@ -127,6 +142,14 @@ public class DynamicChangeMaker {
 
     }
 
+    /**
+     * Validates the input arguments
+     *
+     * @param args input arguments for value and denoms to be validated
+     *
+     * @throws NumberFormatException if the denominations or value are not present or are 0 or negative
+     */
+
     public static void validateArgs(String args[]) throws NumberFormatException, IllegalArgumentException {
         // String denomString = "";
         try{
@@ -199,8 +222,6 @@ public class DynamicChangeMaker {
      *  The main program starts here
      *  remember the constraints from the project description
      *  @see  http://bjohnson.lmu.build/cmsi186web/homework07.html
-     *  be sure to make LOTS of tests!!
-     *  remember you are trying to BREAK your code, not just prove it works!
      */
     public static void main(String [] args){
         validateArgs(args);
